@@ -4,10 +4,10 @@ user_homepage:
 
 #FosUserBundle routes
 fos_user_registration:
-    resource: @FOSUserBundle/Resources/config/routing/registration.xml
+    resource: @UserBundle/Resources/config/routing/registration.xml
 
 fos_user_profile:
-    resource: @FOSUserBundle/Resources/config/routing/profile.xml
+    resource: @UserBundle/Resources/config/routing/profile.xml
 
 fos_user_security:
     resource: @FOSUserBundle/Resources/config/routing/security.xml

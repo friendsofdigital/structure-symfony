@@ -28,6 +28,62 @@ class User extends BaseUser
      * @MongoDB\String
 */
     protected $facebook_access_token;
+    /**
+     * @MongoDB\String
+     */
+    protected $profileimage;
+    /**
+     * @MongoDB\String
+     */
+    protected $name;
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
+
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+
+
+    public function getProfileimage()
+    {
+        return $this->profileimage;
+    }
+
+
+    public function setProfileimage($profileimage)
+    {
+        $this->profileimage = $profileimage;
+    }
+
+
+    public function getFacebookAccessToken()
+    {
+        return $this->facebook_access_token;
+    }
+
+
+    public function setFacebookAccessToken($facebook_access_token)
+    {
+        $this->facebook_access_token = $facebook_access_token;
+    }
+
+
+    public function getFacebookId()
+    {
+        return $this->facebook_id;
+    }
+
+    public function setFacebookId($facebook_id)
+    {
+        $this->facebook_id = $facebook_id;
+    }
+
 
     public function __construct()
     {

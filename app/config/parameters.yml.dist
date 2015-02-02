@@ -1,20 +1,16 @@
 # This file is a "template" of what your parameters.yml file should look like
 parameters:
-    database_driver:   pdo_mysql
-    database_host:     127.0.0.1
-    database_port:     ~
-    database_name:     symfony
-    database_user:     root
-    database_password: ~
-    # You should uncomment this if you want use pdo_sqlite
-    # database_path: "%kernel.root_dir%/data.db3"
-
-    mailer_transport:  smtp
-    mailer_host:       127.0.0.1
-    mailer_user:       ~
-    mailer_password:   ~
-
-    locale:            en
-
-    # A secret key that's used to generate certain security-related tokens
-    secret:            ThisTokenIsNotSoSecretChangeIt
+        database_driver: pdo_mysql
+        database_host: 127.0.0.1
+        database_port: null
+        database_name: structure
+        database_user: root
+        database_password: null
+        mailer_transport: smtp
+        mailer_host: smtp.gmail.com
+        mailer_user: seddik.omar@gmail.com
+        mailer_password: mariama1
+        locale: fr
+        secret: ThisTokenIsNotSoSecretChangeIt
+        facebook_app_id: 1607755729444545
+        facebook_app_secret: 56af907c3ef2129f86251b6d5142a602
