@@ -1,0 +1,32 @@
+user_homepage:
+    path:     /
+    defaults: { _controller: UserBundle:Default:index }
+
+#FosUserBundle routes
+fos_user_registration:
+    resource: @FOSUserBundle/Resources/config/routing/registration.xml
+
+fos_user_profile:
+    resource: @FOSUserBundle/Resources/config/routing/profile.xml
+
+fos_user_security:
+    resource: @FOSUserBundle/Resources/config/routing/security.xml
+
+fos_user_resetting:
+    resource: @FOSUserBundle/Resources/config/routing/resetting.xml
+
+#HWIOAuthBundle routes
+hwi_oauth_security:
+    resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
+    prefix: /auth
+
+hwi_oauth_connect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/connect.xml"
+    prefix: /auth
+
+hwi_oauth_redirect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
+    prefix: /auth
+
+facebook_login:
+    pattern: /login/check-facebook
