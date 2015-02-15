@@ -1,6 +1,3 @@
-user_homepage:
-    path:     /
-    defaults: { _controller: UserBundle:Default:index }
 
 #FosUserBundle routes
 fos_user_registration:
@@ -10,7 +7,7 @@ fos_user_profile:
     resource: @UserBundle/Resources/config/routing/profile.xml
 
 fos_user_security:
-    resource: @FOSUserBundle/Resources/config/routing/security.xml
+    resource: @UserBundle/Resources/config/routing/security.xml
 
 fos_user_resetting:
     resource: @FOSUserBundle/Resources/config/routing/resetting.xml

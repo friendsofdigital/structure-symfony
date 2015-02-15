@@ -23,7 +23,9 @@
         "doctrine/mongodb-odm-bundle": "3.0.*@dev",
         "friendsofsymfony/elastica-bundle": "~3.0",
         "friendsofsymfony/jsrouting-bundle": "~1.5",
-        "hwi/oauth-bundle": "0.3.*"
+        "hwi/oauth-bundle": "0.3.*",
+        "liip/imagine-bundle": "~1.2",
+        "symfony-cmf/media-bundle": "~1.2"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

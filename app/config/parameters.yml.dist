@@ -6,9 +6,9 @@ parameters:
         database_name: structure
         database_user: root
         database_password: null
-        mailer_transport: smtp
-        mailer_host: smtp.gmail.com
-        mailer_user: seddik.omar@gmail.com
+        mailer_transport: gmail
+        mailer_host: ~
+        mailer_user: demo.structure@gmail.com
         mailer_password: mariama1
         locale: fr
         secret: ThisTokenIsNotSoSecretChangeIt

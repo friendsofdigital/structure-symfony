@@ -18,6 +18,7 @@ class FOSUBUserProvider extends BaseClass
     public function connect(UserInterface $user, UserResponseInterface $response)
     {
 
+
         $property = $this->getProperty($response);
         $username = $response->getUsername();
 //on connect - get the access token and the user ID
@@ -60,6 +61,7 @@ class FOSUBUserProvider extends BaseClass
             $user->setName($response->getNickname());
 //I have set all requested data with the user's username
 //modify here with relevant data
+            $user->setRoles(array("ROLE_ADMIN"));
             $user->setUsername($username);
             $user->setEmail($email);
             $user->setPassword(null);

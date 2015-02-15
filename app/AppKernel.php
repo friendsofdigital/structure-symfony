@@ -19,8 +19,11 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\MongoDBBundle\DoctrineMongoDBBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Master\UserBundle\UserBundle(),
+            new Liip\ImagineBundle\LiipImagineBundle(),
+            new Symfony\Cmf\Bundle\MediaBundle\CmfMediaBundle(),
             new FOS\ElasticaBundle\FOSElasticaBundle(),
             new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
+            new Master\AssetBundle\AssetBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

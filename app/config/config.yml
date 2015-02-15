@@ -70,7 +70,7 @@ swiftmailer:
     host:      "%mailer_host%"
     username:  "%mailer_user%"
     password:  "%mailer_password%"
-    spool:     { type: memory }
+#    spool:     { type: memory }
 
 # MongoDB
 doctrine_mongodb:
@@ -112,9 +112,6 @@ fos_elastica:
                         username: ~
                         email: ~
                     persistence:
-                        # the driver can be orm, mongodb or propel
-                        # listener and finder are not supported by
-                        # propel and should be removed
                         driver: mongodb
                         model: Master\UserBundle\Document\User
                         provider: ~
@@ -147,3 +144,20 @@ hwi_oauth:
                 display: popup #dialog is optimized for popup window
             paths:
                 profilepicture: picture.data.url
+
+#Liip for Images
+liip_imagine:
+    resolvers:
+       default:
+          web_path: ~
+
+    filter_sets:
+        cache: ~
+        profile:
+            quality: 75
+            filters:
+                thumbnail: { size: [90, 90], mode: outbound }
+        thumbnail:
+            quality: 75
+            filters:
+                thumbnail: { size: [920, 730], mode: outbound }
