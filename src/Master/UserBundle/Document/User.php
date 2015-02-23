@@ -23,6 +23,14 @@ class User extends BaseUser
     /**
      * @MongoDB\String
      */
+    protected $firstname;
+    /**
+     * @MongoDB\String
+     */
+    protected $lastname;
+    /**
+     * @MongoDB\String
+     */
     protected $facebook_id;
     /**
      * @MongoDB\String
@@ -35,17 +43,78 @@ class User extends BaseUser
     /**
      * @MongoDB\String
      */
-    protected $name;
+    protected $fullname;
+    /**
+     * @MongoDB\Array
+     */
+    protected $asset;
 
-    public function getName()
+    /**
+     * @return mixed
+     */
+    public function getAsset()
     {
-        return $this->name;
+        return $this->asset;
+    }
+
+    /**
+     * @param mixed $asset
+     */
+    public function setAsset($asset)
+    {
+        $this->asset = $asset;
     }
 
 
-    public function setName($name)
+
+    /**
+     * @return mixed
+     */
+    public function getFirstname()
     {
-        $this->name = $name;
+        return $this->firstname;
+    }
+
+    /**
+     * @param mixed $firstname
+     */
+    public function setFirstname($firstname)
+    {
+        $this->firstname = $firstname;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFullname()
+    {
+        return $this->fullname;
+    }
+
+    /**
+     * @param mixed $fullname
+     */
+    public function setFullname($fullname)
+    {
+        $this->fullname = $fullname;
+    }
+
+
+
+    /**
+     * @return mixed
+     */
+    public function getLastname()
+    {
+        return $this->lastname;
+    }
+
+    /**
+     * @param mixed $lastname
+     */
+    public function setLastname($lastname)
+    {
+        $this->lastname = $lastname;
     }
 
 

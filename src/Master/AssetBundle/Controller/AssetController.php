@@ -4,10 +4,10 @@ namespace Master\AssetBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class DefaultController extends Controller
+class AssetController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('AssetBundle:Default:index.html.twig');
+        return $this->render("@Asset/Default/index.html.twig");
     }
 }

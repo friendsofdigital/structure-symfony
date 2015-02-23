@@ -1,4 +1,5 @@
 
+
 #FosUserBundle routes
 fos_user_registration:
     resource: @UserBundle/Resources/config/routing/registration.xml

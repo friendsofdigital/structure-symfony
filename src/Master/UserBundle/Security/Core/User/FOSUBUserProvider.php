@@ -58,7 +58,7 @@ class FOSUBUserProvider extends BaseClass
             $user->$setter_id($username);
             $user->$setter_token($response->getAccessToken());
             $user->setProfileimage($response->getProfilePicture());
-            $user->setName($response->getNickname());
+            $user->setFullname($response->getRealName());
 //I have set all requested data with the user's username
 //modify here with relevant data
             $user->setRoles(array("ROLE_ADMIN"));
