@@ -34,6 +34,7 @@ class RegistrationController extends ContainerAware
         $confirmationEnabled = $this->container->getParameter('fos_user.registration.confirmation.enabled');
 
         $process = $formHandler->process($confirmationEnabled);
+
         if ($process) {
             $user = $form->getData();
 

@@ -1,4 +1,10 @@
+_welcome_asset:
+    path:   /
+    defaults:  { _controller: AssetBundle:Asset:index }
 
+upload_asset:
+    path:   /asset/upload
+    defaults:  { _controller: AssetBundle:Asset:upload }
 
 _liip_imagine:
     resource: "@LiipImagineBundle/Resources/config/routing.xml"

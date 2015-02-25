@@ -27,6 +27,10 @@ class User extends BaseUser
     /**
      * @MongoDB\String
      */
+    protected $token;
+    /**
+     * @MongoDB\String
+     */
     protected $lastname;
     /**
      * @MongoDB\String
@@ -45,7 +49,7 @@ class User extends BaseUser
      */
     protected $fullname;
     /**
-     * @MongoDB\Array
+     * @MongoDB\EmbedOne(targetDocument="Master\AssetBundle\Document\Asset") **
      */
     protected $asset;
 
@@ -63,6 +67,22 @@ class User extends BaseUser
     public function setAsset($asset)
     {
         $this->asset = $asset;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getToken()
+    {
+        return $this->token;
+    }
+
+    /**
+     * @param mixed $token
+     */
+    public function setToken($token)
+    {
+        $this->token = $token;
     }
 
 

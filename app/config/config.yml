@@ -96,8 +96,8 @@ fos_user:
                 sender_name:    structure-symfony Registration
         form:
             name:               fos_user_registration_form
-            type:               fos_user_registration
-            handler:            fos_user.registration.form.handler.default
+            type:               user_registration
+            handler:            user.form.handler.registration
     service:
         mailer:  fos_user.mailer.twig_swift
 #    When they Want to reset password

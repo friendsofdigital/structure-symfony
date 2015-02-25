@@ -5,3 +5,15 @@ services:
     my_user_provider:
         class: "%my_user_provider.class%"
         arguments: [@fos_user.user_manager.default,{facebook: facebook_id}]
+
+    user.registration.form.type:
+            class: Master\UserBundle\Form\Type\RegistrationFormType
+            arguments: [%fos_user.model.user.class%]
+            tags:
+                - { name: form.type, alias: user_registration }
+
+    user.form.handler.registration:
+            class: Master\UserBundle\Form\Handler\RegistrationFormHandler
+            arguments: ["@fos_user.registration.form", "@request", "@fos_user.user_manager", "@fos_user.mailer","@fos_user.util.token_generator","@imagefactory"]
+            scope: request
+            public: false

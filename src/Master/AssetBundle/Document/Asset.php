@@ -9,7 +9,7 @@
 namespace Master\AssetBundle\Document;
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 /**
- * @MongoDB\Document
+/** @EmbeddedDocument *
  */
 class Asset{
 
@@ -25,7 +25,55 @@ class Asset{
      * @MongoDB\String
      */
     protected $uriasset;
+
     /**
-     * @MongoDB\String
+     * @return mixed
      */
+    public function getExtensionasset()
+    {
+        return $this->extensionasset;
+    }
+
+    /**
+     * @param mixed $extensionasset
+     */
+    public function setExtensionasset($extensionasset)
+    {
+        $this->extensionasset = $extensionasset;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPathasset()
+    {
+        return $this->pathasset;
+    }
+
+    /**
+     * @param mixed $pathasset
+     */
+    public function setPathasset($pathasset)
+    {
+        $this->pathasset = $pathasset;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUriasset()
+    {
+        return $this->uriasset;
+    }
+
+    /**
+     * @param mixed $uriasset
+     */
+    public function setUriasset($uriasset)
+    {
+        $this->uriasset = $uriasset;
+    }
+
+
+
 } 

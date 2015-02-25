@@ -1,0 +1,8 @@
+parameters:
+    master_asset.config_factory: Master\AssetBundle\Service\ImageFactory
+
+services:
+    ImageFactory:
+        class: %master_asset.config_factory%
+        arguments:
+            - "%kernel.root_dir%"

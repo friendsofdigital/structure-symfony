@@ -1,0 +1,14 @@
+<html>
+<head>
+    <title>Upload</title>
+</head>
+<body>
+<ul>
+{% for u in users %}
+<li>{{u.username}}
+<img src="{{ ('/upload'~u.asset.pathasset~'/'~u.asset.uriasset~'.jpg') | imagine_filter('profile') }}" /> </li>
+{% endfor %}
+</ul>
+
+</body>
+</html>
