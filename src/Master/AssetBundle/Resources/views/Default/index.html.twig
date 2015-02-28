@@ -6,7 +6,10 @@
 <ul>
 {% for u in users %}
 <li>{{u.username}}
-<img src="{{ ('/upload'~u.asset.pathasset~'/'~u.asset.uriasset~'.jpg') | imagine_filter('profile') }}" /> </li>
+    {% if u.asset != null %}
+<img src="{{ ('/upload'~u.asset.pathasset~'/'~u.asset.uriasset~'.'~u.asset.extensionasset) | imagine_filter('profile') }}" />
+    {% endif %}
+</li>
 {% endfor %}
 </ul>
 

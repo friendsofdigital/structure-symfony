@@ -9,7 +9,7 @@
 namespace Master\AssetBundle\Document;
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 /**
-/** @EmbeddedDocument *
+** @MongoDB\EmbeddedDocument *
  */
 class Asset{
 

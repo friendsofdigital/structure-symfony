@@ -114,16 +114,16 @@ fos_elastica:
     indexes:
         structure:
             types:
-                user:
+                advert:
                     mappings:
-                        username: ~
-                        email: ~
+                        title: ~
+                        telephone: ~
+                        tokenuser: ~
                     persistence:
                         driver: mongodb
-                        model: Master\UserBundle\Document\User
+                        model: Master\AdvertBundle\Document\Advert
                         provider: ~
-                        listener:
-                            immediate: ~
+                        listener: ~
                         finder: ~
 
 #hwi_auth Facebook
@@ -152,6 +152,18 @@ hwi_oauth:
                 display: popup #dialog is optimized for popup window
             paths:
                 profilepicture: picture.data.url
+
+#Knp Paginator
+knp_paginator:
+    page_range: 5                      # default page range used in pagination control
+    default_options:
+        page_name: page                # page query parameter name
+        sort_field_name: sort          # sort field query parameter name
+        sort_direction_name: direction # sort direction query parameter name
+        distinct: true                 # ensure distinct results, useful when ORM queries are using GROUP BY statements
+    template:
+        pagination: KnpPaginatorBundle:Pagination:sliding.html.twig     # sliding pagination controls template
+        sortable: KnpPaginatorBundle:Pagination:sortable_link.html.twig # sort link template
 
 #Liip for Images
 liip_imagine:

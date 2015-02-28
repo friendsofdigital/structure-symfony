@@ -1,0 +1,114 @@
+<html>
+<head>Add Advert</head>
+<body>
+
+<form method="POST" action="{{ path("advert_add") }}">
+    <table>
+        <tr>
+         <td><label for="title" >Title</label></td>
+            <td><input type="text" id="title" name="title" value="" required="">
+         </tr>
+        <tr>
+            <td><label for="description">Description</label></td>
+            <td><input type="text" id="description" name="description" value="" required="">
+        </tr>
+        <tr>
+            <td><label for="tel">Telephone</label></td>
+            <td><input type="tel" id="tel" name="tel" value="">
+        </tr>
+        <tr>
+            <td><label for="fax">Fax</label></td>
+            <td><input type="tel" id="fax" name="fax" value="">
+        </tr>
+        <tr>
+            <td><label for="website">Website</label></td>
+            <td><input type="url" id="website" name="website" value="">
+        </tr>
+        <tr>
+            <td><label for="localization">Ville</label></td>
+            <td><input id="localization" type="text" /></td>
+            <td><input type="hidden" id="localzadvert" name="localization" value=""></td>
+            <td><div id="map_wrapper" style="height:400px;width:400px"></div></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Valider"/></td>
+
+        </tr>
+    </table>
+</form>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+<script>
+    //Autocomplete
+    function init() {
+        var lat = 48.856614;
+        var long = 2.3522219000000177;
+        var input = document.getElementById('localization');
+        var options = {
+            types: ['(cities)'],
+            componentRestrictions: {country: 'fr'}
+        };
+
+        var autocomplete = new google.maps.places.Autocomplete(input, options);
+        var mapOptions = {
+            center: new google.maps.LatLng(lat, long),
+            zoom: 6
+        };
+        var map = new google.maps.Map(document.getElementById('map_wrapper'),
+                mapOptions);
+
+        var marker = new google.maps.Marker({
+            map: map,
+            anchorPoint: new google.maps.Point(0, -29),
+            draggable: true,
+            position: new google.maps.LatLng(lat, long)
+        });
+        marker.setCursor('move');
+        google.maps.event.addListener(marker, 'dragend', function (evt) {
+
+            latlong = (evt.latLng.lat() + "," + evt.latLng.lng());
+            $("#localzadvert").val("" + latlong + "");
+        });
+        var latlong = lat + "," + long;
+        $("#localzadvert").val("" + latlong + "");
+
+        autocomplete.addListener("place_changed", function () {
+
+            lat = autocomplete.getPlace().geometry.location.k;
+            long = autocomplete.getPlace().geometry.location.D;
+
+            mapOptions = {
+                center: new google.maps.LatLng(lat, long),
+                zoom: 6
+            };
+            map.setOptions({
+                center: new google.maps.LatLng(lat, long),
+                zoom: 6
+            });
+            marker.setPosition(null);
+
+            marker = new google.maps.Marker({
+                map: map,
+                anchorPoint: new google.maps.Point(0, -29),
+                draggable: true,
+                position: new google.maps.LatLng(lat, long)
+            });
+            google.maps.event.addListener(marker, 'dragend', function (evt) {
+
+                latlong = (evt.latLng.lat() + "," + evt.latLng.lng());
+                $("#localzadvert").val("" + latlong + "");
+            });
+            latlong = lat + "," + long;
+            $("#localzadvert").val("" + latlong + "");
+
+        });
+
+
+    }
+    google.maps.event.addDomListener(window, 'load', init);
+    //Maps
+
+
+</script>
+</body>
+</html>

@@ -36,7 +36,7 @@ class RegistrationFormHandler extends BaseHandler
     public function process($confirmation = false)
     {
 
-        $user = $this->createUser();
+        $user = $this->userManager->createUser();
         $this->form->setData($user);
 
         if ('POST' === $this->request->getMethod()) {
@@ -45,20 +45,35 @@ class RegistrationFormHandler extends BaseHandler
             $user->setFullname($user->getFirstname()." ".$user->getLastname());
             $asset=new Asset();
             $asset->setPathasset("/Profil/".$user->getToken());
-            $asset->setExtensionasset($user->getAsset()->guessExtension());
+            $asset->setExtensionasset(strtolower(explode(".",$user->getAsset()->getClientOriginalName())[1]));
             //URI IMAGE
+
 
             $uri=$this->imagefactory->save($user->getAsset(),$asset->getPathasset());
             $asset->setUriasset($uri);
             $user->setAsset($asset);
             if ($this->form->isValid()) {
-                parent::onSuccess($user, $confirmation);
-
+                $this->onSuccess($user, $confirmation);
                 return true;
             }
         }
 
         return false;
+    }
+    protected function onSuccess(UserInterface $user, $confirmation)
+    {
+        if ($confirmation) {
+            $user->setEnabled(false);
+            if (null === $user->getConfirmationToken()) {
+                $user->setConfirmationToken($this->tokenGenerator->generateToken());
+            }
+
+            $this->mailer->sendConfirmationEmailMessage($user);
+        } else {
+            $user->setEnabled(true);
+        }
+
+        $this->userManager->updateUser($user);
     }
 
 

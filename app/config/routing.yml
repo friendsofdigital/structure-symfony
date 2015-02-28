@@ -1,3 +1,7 @@
+advert:
+    resource: "@AdvertBundle/Resources/config/routing.yml"
+    prefix:   /advert
+
 asset:
     resource: "@AssetBundle/Resources/config/routing.yml"
     prefix:   /

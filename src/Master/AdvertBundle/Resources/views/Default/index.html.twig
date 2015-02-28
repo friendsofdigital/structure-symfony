@@ -1,0 +1,15 @@
+<html>
+<head></head>
+<body>
+{% if app.user is defined %}
+<a href="{{ path('advert_add') }}">Ajouter</a>
+{% endif %}
+
+{% for u in advert %}
+<div>
+   <h3>{{ u.title}}</h3>
+    <p>{{ u.telephone }}</p>
+</div>
+{% endfor %}
+</body>
+</html>

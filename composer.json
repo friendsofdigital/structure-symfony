@@ -25,7 +25,9 @@
         "friendsofsymfony/jsrouting-bundle": "~1.5",
         "hwi/oauth-bundle": "0.3.*",
         "liip/imagine-bundle": "~1.2",
-        "symfony-cmf/media-bundle": "~1.2"
+        "symfony-cmf/media-bundle": "~1.2",
+        "jms/serializer-bundle": "0.13.*",
+        "knplabs/knp-paginator-bundle": "~2.4"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
