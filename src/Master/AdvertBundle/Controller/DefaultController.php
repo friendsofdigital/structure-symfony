@@ -20,7 +20,7 @@ class DefaultController extends Controller
         $adverts = $paginator->paginate(
             $pagination,
             $request->query->get('page', $p)/*page number*/,
-            1/*limit per page*/
+            2/*limit per page*/
         );
         return $this->render('AdvertBundle:Default:index.html.twig',array('advert'=>$adverts));
     }

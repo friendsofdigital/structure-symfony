@@ -21,6 +21,7 @@ class ImageFactory
 {
 
     private $kernel, $name;
+    private static $kernetstatic;
 
     public function __construct($kernel)
     {
@@ -33,10 +34,27 @@ class ImageFactory
     {
         $name = md5(uniqid(rand(), true));
         $url = $this->kernel . '/../web/upload' . $folder . '/';
+
         if (!is_dir($url)) {
             mkdir($url, 0755, true);
         }
         $file->move($url, $name . '.jpg');
+        return $name;
+    }
+
+
+
+
+
+    public  function saveLink($f, $folder  )
+    {
+        $name = md5(uniqid(rand(), true));
+        $url = $this->kernel . '/../web/upload' . $folder . '/';
+        if (!is_dir($url)) {
+            mkdir($url, 0755, true);
+        }
+        $image = file_get_contents($f);
+        file_put_contents($url . $name . '.jpg', $image);
         return $name;
     }
 }
