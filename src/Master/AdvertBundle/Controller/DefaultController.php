@@ -14,14 +14,7 @@ class DefaultController extends Controller
         $p=1;
         if($request->query->get('page')!=null)
             $p=intval($request->query->get('page'));
-        $manager=$this->get('fos_elastica.index.structure.advert');
-        $pagination=$manager->search()->getResults();
-        $paginator  = $this->get('knp_paginator');
-        $adverts = $paginator->paginate(
-            $pagination,
-            $request->query->get('page', $p)/*page number*/,
-            2/*limit per page*/
-        );
+        $adverts=$this->advertShow($request,$p);
         return $this->render('AdvertBundle:Default:index.html.twig',array('advert'=>$adverts));
     }
     public function addAction(Request $request)
@@ -41,8 +34,21 @@ class DefaultController extends Controller
         }else{
             return $this->render('AdvertBundle:Advert:add.html.twig');
         }
-        $manager=$this->get('fos_elastica.index.structure.advert');
-        $adverts=$manager->search()->getResults();
+
+        $adverts=$this->advertShow($request,1);
         return $this->render('AdvertBundle:Default:index.html.twig',array("advert"=>$adverts));
+    }
+    public function advertShow($request,$p)
+    {
+        $manager=$this->get('fos_elastica.finder.structure.advert');
+        $pagination=$manager->find("",100);
+//        var_dump($pagination);exit;
+        $paginator  = $this->get('knp_paginator');
+        $adverts = $paginator->paginate(
+            $pagination,
+            $request->query->get('page', $p)/*page number*/,
+            6/*limit per page*/
+        );
+        return $adverts;
     }
 }
